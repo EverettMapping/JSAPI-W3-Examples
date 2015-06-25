@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+
+var myHouse=new google.maps.LatLng(36.9638093,-122.0217195);
+
+
+function initialize()
+{
+var mapProp = {
+  center:myHouse,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.HYBRID
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+// Create the Circle
+var fartRadius=new google.maps.Circle({
+  center: myHouse,
+  radius: 20, //meters
+  strokeColor:"#ffffff",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor: "#6FA062",
+  fillOpacity:0.4,
+  });
+
+
+fartRadius.setMap(map);
+/*
+markerOne.setMap(map);
+markerTwo.setMap(map);
+markerThree.setMap(map);
+*/
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:760px;"></div>
+</body>
+</html>

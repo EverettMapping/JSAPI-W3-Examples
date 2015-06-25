@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+
+var startView=new google.maps.LatLng(36.9794318,-122.0310751);
+// These will be the points for the line
+var myHouse=new google.maps.LatLng(36.9638093,-122.0217195);
+var myWork=new google.maps.LatLng(37.0015902,-122.0588108);
+var myGym=new google.maps.LatLng(36.980956,-122.008785);
+var myFood=new google.maps.LatLng(36.970848,-122.025027);
+
+function initialize()
+{
+var mapProp = {
+  center:startView,
+  zoom:13,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+
+
+
+
+// HOUSE ====================================
+var myHouseMarker=new google.maps.Marker({
+  position:myHouse,
+  });
+myHouseMarker.setMap(map);
+
+var myHouseInfo=new google.maps.InfoWindow({
+	content: "Where I Sleep"
+});
+myHouseInfo.open(map,myHouseMarker);
+
+//Add Zoom event handler
+google.maps.event.addListener(myHouseMarker,'click',function() {
+	map.setZoom(18);
+	map.setCenter(myHouseMarker.getPosition());
+});
+
+// WORK ====================================
+var myWorkMarker=new google.maps.Marker({
+  position:myWork,
+  });
+myWorkMarker.setMap(map);
+
+var myWorkInfo=new google.maps.InfoWindow({
+	content: "Where I Work"
+});
+myWorkInfo.open(map,myWorkMarker);
+
+google.maps.event.addListener(myWorkMarker,'click',function() {
+	map.setZoom(18);
+	map.setCenter(myWorkMarker.getPosition());
+});
+
+// FOOD ====================================
+var myFoodMarker=new google.maps.Marker({
+  position:myFood,
+  });
+myFoodMarker.setMap(map);
+
+var myFoodInfo=new google.maps.InfoWindow({
+	content: "Where I Eat"
+});
+myFoodInfo.open(map,myFoodMarker);
+
+google.maps.event.addListener(myFoodMarker,'click',function() {
+	map.setZoom(18);
+	map.setCenter(myFoodMarker.getPosition());
+});
+
+// GYM ====================================
+var myGymMarker=new google.maps.Marker({
+	position:myGym,
+});
+myGymMarker.setMap(map);
+
+var myGymInfo=new google.maps.InfoWindow({
+	content: "Where I Train"
+});
+myGymInfo.open(map,myGymMarker);
+
+google.maps.event.addListener(myGymMarker,'click',function() {
+	map.setZoom(18);
+	map.setCenter(myGymMarker.getPosition());
+});
+
+/*
+var myWeek=[myHouse,myFood,myWork,myGym];
+var flightPath=new google.maps.Polygon({
+  path:myWeek,
+  strokeColor:"#ffffff",
+  strokeOpacity:0.8,
+  strokeWeight:2,
+  fillColor: "#6FA062",
+  fillOpacity:0.4,
+  });
+
+
+flightPath.setMap(map);
+*/
+
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+
+</head>
+
+<body>
+<div id="googleMap" style="width:1000px;height:760px;"></div>
+</body>
+</html>

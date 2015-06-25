@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+// Create a variable describing the location of a marker
+// This will be used to set the center of the map as well as the actual marker we place
+var myCenter=new google.maps.LatLng(36.9638093,-122.0217195);
+
+function initialize()
+{
+
+var mapProp = {
+  center:myCenter,  
+  // In other maps, "center" would be set with coordinates
+  // Here we use the marker variable we created on line 11
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.HYBRID  // Set map type
+  };
+
+// Says that the map will take up the space of the div with the id 'googleMap'
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  animation:google.maps.Animation.BOUNCE
+  //icon: 'eicon.png' //can't use icon and animation at once
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+
+<body>
+<!-- Here is that div with the id of "googleMap", that was mentioned on line 25-->
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</body>
+</html>

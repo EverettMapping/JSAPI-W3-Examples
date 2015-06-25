@@ -1,0 +1,2 @@
+# Google Maps JS API Lesson Examples
+These are the working files that go with the [W3 Schools Google Maps JS API Lessons](http://www.w3schools.com/googleapi/). The files are not intended to be lessons, but rather, commented examples of another student's progress through them.
